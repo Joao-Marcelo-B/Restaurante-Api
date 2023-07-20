@@ -9,6 +9,7 @@ namespace RestauranteApi.Profiles
         public ClienteProfile()
         {
             CreateMap<CreateClienteDto, Cliente>();
+            CreateMap<Cliente, ReadClienteDto>();
         }
     }
 }
