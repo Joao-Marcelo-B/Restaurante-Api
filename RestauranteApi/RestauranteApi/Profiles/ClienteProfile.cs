@@ -1,0 +1,14 @@
+﻿using AutoMapper;
+using RestauranteApi.Data.Dtos;
+using RestauranteApi.Models;
+
+namespace RestauranteApi.Profiles
+{
+    public class ClienteProfile : Profile
+    {
+        public ClienteProfile()
+        {
+            CreateMap<CreateClienteDto, Cliente>();
+        }
+    }
+}

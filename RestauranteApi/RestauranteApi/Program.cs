@@ -1,5 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using RestauranteApi.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connString = builder.Configuration.GetConnectionString("RestauranteConnection");
+
+builder.Services.AddDbContext<RestauranteContext>(opts =>
+opts.UseLazyLoadingProxies().UseMySql(connString, ServerVersion.AutoDetect(connString)));
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Add services to the container.
 
 builder.Services.AddControllers();
