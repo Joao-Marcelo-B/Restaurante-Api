@@ -14,5 +14,6 @@ public class Cliente
     public string Cpf { get; set; }
     [MaxLength(11)]
     public string Telefone { get; set; }
-
+    public int EnderecoId { get; set; }
+    public virtual Endereco Endereco { get; set; }
 }

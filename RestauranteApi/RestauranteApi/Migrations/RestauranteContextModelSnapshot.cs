@@ -32,6 +32,9 @@ namespace RestauranteApi.Migrations
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
 
+                    b.Property<int>("EnderecoId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -44,7 +47,51 @@ namespace RestauranteApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EnderecoId")
+                        .IsUnique();
+
                     b.ToTable("Clientes");
+                });
+
+            modelBuilder.Entity("RestauranteApi.Models.Endereco", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Logradouro")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("Numero")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Enderecos");
+                });
+
+            modelBuilder.Entity("RestauranteApi.Models.Cliente", b =>
+                {
+                    b.HasOne("RestauranteApi.Models.Endereco", "Endereco")
+                        .WithOne("Cliente")
+                        .HasForeignKey("RestauranteApi.Models.Cliente", "EnderecoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Endereco");
+                });
+
+            modelBuilder.Entity("RestauranteApi.Models.Endereco", b =>
+                {
+                    b.Navigation("Cliente")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
