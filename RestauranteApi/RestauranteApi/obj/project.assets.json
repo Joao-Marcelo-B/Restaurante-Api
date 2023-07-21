@@ -1702,23 +1702,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JoaoMarcelo\\.nuget\\packages\\": {},
+    "C:\\Users\\João Marcelo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\Restaurante-Api\\RestauranteApi\\RestauranteApi\\RestauranteApi.csproj",
+      "projectUniqueName": "C:\\GitHub\\RestauranteApi\\Restaurante-Api\\RestauranteApi\\RestauranteApi\\RestauranteApi.csproj",
       "projectName": "RestauranteApi",
-      "projectPath": "C:\\GitHub\\Restaurante-Api\\RestauranteApi\\RestauranteApi\\RestauranteApi.csproj",
-      "packagesPath": "C:\\Users\\JoaoMarcelo\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\Restaurante-Api\\RestauranteApi\\RestauranteApi\\obj\\",
+      "projectPath": "C:\\GitHub\\RestauranteApi\\Restaurante-Api\\RestauranteApi\\RestauranteApi\\RestauranteApi.csproj",
+      "packagesPath": "C:\\Users\\João Marcelo\\.nuget\\packages\\",
+      "outputPath": "C:\\GitHub\\RestauranteApi\\Restaurante-Api\\RestauranteApi\\RestauranteApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\JoaoMarcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\João Marcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
