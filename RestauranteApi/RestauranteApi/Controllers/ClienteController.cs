@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using RestauranteApi.Data;
 using RestauranteApi.Data.Dtos;
@@ -46,5 +47,41 @@ public class ClienteController : ControllerBase
         var clienteDto = _mapper.Map<ReadClienteDto>(cliente);
 
         return Ok(clienteDto);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult PutCliente([FromBody] UpdateClienteDto dto, int id)
+    {
+        var cliente = _context.Clientes.FirstOrDefault(cliente => cliente.Id == id);
+
+        if(cliente == null) return NotFound();
+
+        _mapper.Map(dto, cliente);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+
+    [HttpPatch]
+    public IActionResult PatchCliente(int id, 
+        JsonPatchDocument<UpdateClienteDto> patch)
+    {
+        var cliente = _context.Clientes.FirstOrDefault(cliente => cliente.Id == id);
+
+        if (cliente == null) return NotFound();
+
+        var clienteUpdate = _mapper.Map<UpdateClienteDto>(cliente);
+
+        patch.ApplyTo(clienteUpdate, ModelState);
+
+        if(!TryValidateModel(clienteUpdate))
+        {
+            return ValidationProblem(ModelState);
+        }
+
+        _mapper.Map(clienteUpdate, cliente);
+        _context.SaveChanges();
+
+        return NoContent();
     }
 }

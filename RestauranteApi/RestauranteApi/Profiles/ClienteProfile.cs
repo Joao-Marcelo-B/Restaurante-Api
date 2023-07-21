@@ -10,6 +10,8 @@ namespace RestauranteApi.Profiles
         {
             CreateMap<CreateClienteDto, Cliente>();
             CreateMap<Cliente, ReadClienteDto>();
+            CreateMap<UpdateClienteDto, Cliente>();
+            CreateMap<Cliente, UpdateClienteDto>();
         }
     }
 }
